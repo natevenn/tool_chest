@@ -5,6 +5,7 @@
   <%= f.text_field :quantity %>
   <%= f.label :price %>
   <%= f.text_field :price %>
+  <%= f.collection_select :category_id, @category, :id, :name, include_blank: true %>
 
   <%= f.submit %>
 <% end %>

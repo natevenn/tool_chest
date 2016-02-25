@@ -2,9 +2,9 @@ require 'test_helper'
 
 class UserCanLogoutTest < ActionDispatch::IntegrationTest
  test "user see the root url" do
-     user = User.create(username: "Nathan", password: "password")
+     user = User.create(username: "Nathan", password: "password", role: 0)
 
-     visit root_path
+     visit '/'
      click_on "Login"
      fill_in "Username", with: "Nathan"
      fill_in "Password", with: "password"

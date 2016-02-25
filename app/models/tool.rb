@@ -3,6 +3,7 @@ class Tool < ActiveRecord::Base
   validates :price, presence: :true
   validates :quantity, presence: :true
 
+  belongs_to :user
 
   def formatted_price
     price / 100.00

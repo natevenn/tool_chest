@@ -1,7 +1,7 @@
 require "test_helper"
 
 class UserCanEditAToolTest < ActionDispatch::IntegrationTest
-  test "user can edit an existing tool" do
+ test "user can edit an existing tool" do
     tool = Tool.create(name: :drill, quantity: 10, price:10000)
 
     visit edit_tool_path(tool.id)
@@ -17,7 +17,7 @@ class UserCanEditAToolTest < ActionDispatch::IntegrationTest
     within(".tool_info") do
       assert page.has_content?("wrench")
       assert page.has_content?("11")
-      assert page.has_content?("2000")
+      assert page.has_content?(20.00)
     end
   end
 end

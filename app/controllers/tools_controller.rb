@@ -1,6 +1,6 @@
 class ToolsController < ApplicationController
   def index
-    @tools = Tool.all
+    @tools = current_user.tools
   end
 
   def show
@@ -14,6 +14,7 @@ class ToolsController < ApplicationController
   def create
     @tool = Tool.new(tool_params)
     if @tool.save
+      current_user.tools << @tool
       flash[:notice] = "You have successfully created a tool"
       session[:most_recent_tool_id] = @tool.id
       redirect_to tool_path(@tool.id)

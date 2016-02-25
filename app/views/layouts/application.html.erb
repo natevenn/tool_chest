@@ -9,7 +9,7 @@
 <body>
 
   <p>
-  <% if tools? -%><strong>Newest tool:</strong> <%= most_recent_tool.name %><% end -%>
+  <% if most_recent_tool %><strong>Newest tool:</strong> <%= most_recent_tool.name %><% end %>
   </p>
 
   <% flash.each do |type, msg| %>

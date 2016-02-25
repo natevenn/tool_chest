@@ -1,2 +1,6 @@
 Welcome, <%= @user.username %>
+<% current_user.tools.each do |tool| %>
+  <h3><%= tool.name %> - <%= tool.quantity %> <%= link_to "Link to view #{tool.name}", tool_path(tool) %></h3>
+<% end %>
+<%= link_to "Create tool", new_tool_path %>
 <%= link_to "Log out", root_path %>

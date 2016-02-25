@@ -3,6 +3,10 @@ require "test_helper"
 class ToolCreationTest < ActionDispatch::IntegrationTest
 
   test 'user can create a new tool' do
+    user = User.create(username: 'nate', password: 'password', role: 0)
+
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
+
     visit new_tool_path
 
     fill_in "Name", with: "Hammer"
